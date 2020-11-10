@@ -141,8 +141,11 @@ transformed['category_ids']
 #### 仿射变换
 
 **IAAAffine** (scale=1.0, translate_percent=None, translate_px=None, rotate=0.0, shear=0.0, order=1, cval=0, mode='reflect', always_apply=False, p=0.5) 缩放 平移百分比(像素) 旋转裁剪 cval和mode是填充方式
+
 **IAAPerspective** (scale=(0.05,0.2), keep_size=True, always_apply=False, p=1) 对输入执行随机四点透视变换 scale 正态分布的标准偏差。这些用于采样子图像角与整个图像角之间的随机距离。默值：（0.05，0.1）
+
 **IAAPiecewiseAffine** (scale=(0.03, 0.05), nb_rows=4, nb_cols=4, order=1, cval=0, mode='constant', always_apply=False, p=1) 扭曲：在输入上放置规则的点网格，并通过仿射变换在这些点附近随机移动 scale 确定每个点移动多远的系数范围。默认值：（0.03，0.05） nb_rows 常规网格应具有的点的行数。默认值：4。 
+
 **ShiftScaleRotate** (shift_limit=0.0625, scale_limit=0.1, rotate_limit=45, interpolation=1, border_mode=4, value=None, mask_value=None, shift_limit_x=None, shift_limit_y=None,always_apply=False, p=0.5)高度和宽度的移位因子范围  比例因子范围  旋转范围 
 
 #### 噪声变换
@@ -186,8 +189,12 @@ transformed['category_ids']
 
 #### 图像增强
 
-**FancyPCA** (alpha=0.1, always_apply=False, p=0.5)     使用Krizhevsky的论文“具有深度卷积神经网络的ImageNet分类”的FancyPCA增强RGB图像PCA降维过程：矩阵X[m,n] m条n维数据，维度上求协方差矩阵(维度各自去均值得到X_c*X_c的转置/(n-1))即各维度间的关系系数矩阵[n,n],求出协方差矩阵的特征值和特征向量,特征向量按特征值大小排成矩阵，选前k列[n,k],和原矩阵X相乘得到降维后的矩阵Y[m,k]
-FancyPCA图像增强过程：图像[w,h,3]reshape[w*h,3],用PCA的方法得到特征矩阵和特征向量之后,特征向量组成矩阵P[3,3],特征值组成矩阵A[3,1],此时A乘一个数alpha,服从(0,0.1)的高斯分布得到A_a, P*A_a得到一个向量V[3,1],原图的每个像素的三个通道都加上这个向量，得到增强后的图像
+**FancyPCA** (alpha=0.1, always_apply=False, p=0.5)使用Krizhevsky的论文“具有深度卷积神经网络的ImageNet分类”的FancyPCA增强RGB图像
+
+**PCA降维过程**：矩阵X[m,n] m条n维数据，维度上求协方差矩阵(维度各自去均值得到X_c*X_c的转置/(n-1))即各维度间的关系系数矩阵[n,n],求出协方差矩阵的特征值和特征向量,特征向量按特征值大小排成矩阵，选前k列[n,k],和原矩阵X相乘得到降维后的矩阵Y[m,k]
+
+**FancyPCA图像增强过程**：图像[w,h,3]reshape[w*h,3],用PCA的方法得到特征矩阵和特征向量之后,特征向量组成矩阵P[3,3],特征值组成矩阵A[3,1],此时A乘一个数alpha,服从(0,0.1)的高斯分布得到A_a, P*A_a得到一个向量V[3,1],原图的每个像素的三个通道都加上这个向量，得到增强后的图像
+
 PS:感觉是一种对比度的增强 和 均衡直方图应用到图像差不多
 
 #### 图像压缩
