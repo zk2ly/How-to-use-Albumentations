@@ -64,7 +64,7 @@ transformed['category_ids']
 
 ### 补充：常用变换
 
-#### 方向变换
+#### 1.方向变换
 
 **Flip**(p=0.5) 水平，垂直 或 水平和垂直 翻转输入 
 
@@ -79,7 +79,7 @@ transformed['category_ids']
 **VerticalFlip**() 垂直翻转
 
 
-#### 大小变换
+#### 2.大小变换
 
 **Crop** (x_min=0, y_min=0, x_max=1024, y_max=1024, always_apply=False, p=1.0) 从图像中裁剪区域
 
@@ -102,7 +102,7 @@ transformed['category_ids']
 **Resize** (height, width, interpolation=1, always_apply=False, p=1)
 
 
-#### 色调变换
+#### 3.色调变换
 
 **Equalize** (mode='cv', by_channels=True, mask=None, mask_params=(), always_apply=False, p=0.5) 均衡图像直方图 
 
@@ -126,7 +126,7 @@ transformed['category_ids']
 
 **ToSepia**() 棕褐色滤镜
 
-#### 天气变换
+#### 4.天气变换
 
 **RandomFog** (fog_coef_lower=0.3, fog_coef_upper=1, alpha_coef=0.08, always_apply=False, p=0.5)模拟图像雾 alpha_coef雾圈的透明度
 
@@ -138,7 +138,7 @@ transformed['category_ids']
 
 **RandomSunFlare** (flare_roi=(0, 0, 1, 0.5), angle_lower=0, angle_upper=1, num_flare_circles_lower=6, num_flare_circles_upper=10, src_radius=200, src_color=(255, 255, 255),always_apply=False, p=1)太阳耀斑
 
-#### 仿射变换
+#### 5.仿射变换
 
 **IAAAffine** (scale=1.0, translate_percent=None, translate_px=None, rotate=0.0, shear=0.0, order=1, cval=0, mode='reflect', always_apply=False, p=0.5) 缩放 平移百分比(像素) 旋转裁剪 cval和mode是填充方式
 
@@ -148,7 +148,7 @@ transformed['category_ids']
 
 **ShiftScaleRotate** (shift_limit=0.0625, scale_limit=0.1, rotate_limit=45, interpolation=1, border_mode=4, value=None, mask_value=None, shift_limit_x=None, shift_limit_y=None,always_apply=False, p=0.5)高度和宽度的移位因子范围  比例因子范围  旋转范围 
 
-#### 噪声变换
+#### 6.噪声变换
 
 **IAAAdditiveGaussianNoise** (loc=0, scale=(0.01*255, 0.05*255), per_channel=False, always_apply=False, p=1) 产生噪声的正态分布的平均值。默认值：0 产生噪声的正态分布的标准偏差。默认值：（0.01 * 255，0.05 * 255）
 
@@ -158,7 +158,7 @@ transformed['category_ids']
 
 **MultiplicativeNoise** (multiplier=(0.9, 1.1), per_channel=True, elementwise=True, always_apply=False, p=1) 将图像乘以随机数或数字数组。
 
-#### 边缘变换
+#### 7.边缘变换
 
 
 **IAAEmboss** (alpha=(0.2, 0.5), strength=(0.2, 0.7), always_apply=False, p=0.5) 压印输入图像，并将结果与​​原始图像重叠 alpha:选择浮雕图像可见性的范围。在0处，仅原始图像可见，在1.0处，仅其浮雕版本可见。默认值：（0.2，0.5）strength 压花强度范围。默认值：（0.2，0.7）
@@ -175,7 +175,7 @@ transformed['category_ids']
 
 **MotionBlur**(blur_limit=7, always_apply=False, p=0.5)使用随机大小的内核将运动模糊应用于输入图像。
 
-#### 像素变换
+#### 8.像素变换
 
 **IAASuperpixels** (p_replace=0.1, n_segments=100, always_apply=False, p=1)将输入图像完全或部分转换为其超像素表示。使用SLIC算法的skimage版本定义任何超像素区域被超像素（即其区域内的平均像素颜色）替换的概率。默认值：0.1目标要生成的超像素数。默认值：100。
 
@@ -183,11 +183,11 @@ transformed['category_ids']
 **InvertImg** 通过从255减去像素值来反转输入图像。
 
 
-#### 样式变换
+#### 9.样式变换
 
 **FDA** (reference_images, beta_limit=0.1, read_fn=<function read_rgb_image at 0x7fefd6731f70>, always_apply=False, p=0.5) 傅立叶域改编 参考图像的文件路径列表或参考图像列表。
 
-#### 图像增强
+#### 10.图像增强
 
 **FancyPCA** (alpha=0.1, always_apply=False, p=0.5)使用Krizhevsky的论文“具有深度卷积神经网络的ImageNet分类”的FancyPCA增强RGB图像
 
@@ -197,11 +197,11 @@ transformed['category_ids']
 
 PS:感觉是一种对比度的增强 和 均衡直方图应用到图像差不多
 
-#### 图像压缩
+#### 11.图像压缩
 
 **ImageCompression** (quality_lower=99, quality_upper=100, compression_type=<ImageCompressionType.JPEG: 0>, always_apply=False, p=0.5) 
 
-#### 其他操作
+#### 12.其他操作
 
 **Normalize** (mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225), max_pixel_value=255.0, always_apply=False, p=1.0)
 
