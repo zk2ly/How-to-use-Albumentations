@@ -81,26 +81,27 @@ transformed['category_ids']
 
 #### 2.大小变换
 
-- **Crop** (x_min=0, y_min=0, x_max=1024, y_max=1024, always_apply=False, p=1.0) 从图像中裁剪区域
-
-- **CenterCrop** (height, width, always_apply=False, p=1.0)  裁剪输入的中心部分
-
 - **LongestMaxSize** (max_size=1024, interpolation=1, always_apply=False, p=1)重新缩放图像，以使最大边等于max_size，并保持初始图像的纵横比。
 
 - **SmallestMaxSize** (max_size=1024, interpolation=1, always_apply=False, p=1) 重新缩放图像，以使最小边等于max_size，并保持初始图像的纵横比。
+
+- **RandomScale** (scale_limit=0.1, interpolation=1, always_apply=False, p=0.5) 随机调整输入大小。输出图像尺寸与输入图像尺寸不同。 范围将是（1-scale_limit，1 + scale_limit）
+
+- **Resize** (height, width, interpolation=1, always_apply=False, p=1)
+
+#### 2-1.裁剪变换
+
+- **Crop** (x_min=0, y_min=0, x_max=1024, y_max=1024, always_apply=False, p=1.0) 从图像中裁剪区域
+
+- **CenterCrop** (height, width, always_apply=False, p=1.0)  裁剪输入的中心部分
 
 - **RandomCrop** (height, width, always_apply=False, p=1.0) 随机裁剪
 
 - **RandomResizedCrop** (w,h, scale=(0.08, 1.0), ratio=(0.75, 1.3333333333333333), interpolation=1, always_apply=False, p=1.0) 裁剪面积scale长宽比ratio的区域缩放到w*h
 
-- **RandomScale** (scale_limit=0.1, interpolation=1, always_apply=False, p=0.5) 随机调整输入大小。输出图像尺寸与输入图像尺寸不同。 范围将是（1-scale_limit，1 + scale_limit）
-
 - **RandomSizedBBoxSafeCrop** (height, width, erosion_rate=0.0, interpolation=1, always_apply=False, p=1.0) 裁剪输入的随机部分，并将其重新缩放到一定大小，而不会丢失bbox。
 
-- **RandomSizedCrop** (min_max_height, height, width, w2h_ratio=1.0, interpolation=1, always_apply=False, p=1.0)裁剪输入的随机部分(min_max_height，然后将其重新缩放为一定大小。
-
-- **Resize** (height, width, interpolation=1, always_apply=False, p=1)
-
+- **RandomSizedCrop** (min_max_height, height, width, w2h_ratio=1.0, interpolation=1, always_apply=False, p=1.0)裁剪输入的随机部分min_max_height，然后将其重新缩放为一定大小。
 
 #### 3.色调变换
 
