@@ -28,11 +28,16 @@ bboxes = [
 类别：
 
 ```python
-# 类别的id和对应的名称字典
-category_ids = [0, 0, 0]
-category_id_to_name = {0: 'person'}
+# 类别和bboxes框写在一起，此时不需要额外的类别标签
+# 可以是整数  字符串 
+bboxes = [
+    [0.379, 0.5666666666666667, 0.158, 0.3813333333333333, 'person'],
+    [0.612, 0.7093333333333333, 0.084, 0.3466666666666667, 'person'],
+    [0.555, 0.7026666666666667, 0.078, 0.34933333333333333, 'person']
+]
 
-# 也可以直接传名称
+# 可以直接传名称
+# 可以是整数  字符串
 category_ids = ['person', 'person', 'person']
 ```
 
@@ -51,7 +56,6 @@ transform = A.Compose(
     bbox_params=A.BboxParams(format='yolo', label_fields=['category_ids'])
 )
 ```
-可以不用label_fields参数，把类别信息和框坐标写在一起即可：https://albumentations.ai/docs/getting_started/bounding_boxes_augmentation/
 
 ### 3.变换
 
