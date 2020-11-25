@@ -51,6 +51,7 @@ transform = A.Compose(
     bbox_params=A.BboxParams(format='yolo', label_fields=['category_ids'])
 )
 ```
+可以不用label_fields参数，把类别信息和框坐标写在一起即可：https://albumentations.ai/docs/getting_started/bounding_boxes_augmentation/
 
 ### 3.变换
 
