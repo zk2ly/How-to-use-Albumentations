@@ -37,7 +37,8 @@ category_ids = ['person', 'person', 'person']
 ### 2.定义变换
 
 ```python
-import Albumentations as A
+import albumentations as A
+
 # A.Compose()传入变换的列表 和 检测框的参数
 transform = A.Compose(
     [
