@@ -56,6 +56,7 @@ transform = A.Compose(
     bbox_params=A.BboxParams(format='yolo', label_fields=['category_ids'])
 )
 ```
+如果类别和bboxes写在一起，不需要label_fileds参数
 
 ### 3.变换
 
@@ -68,7 +69,7 @@ transformed['image']
 transformed['bboxes']
 transformed['category_ids']
 ```
-
+如果类别和bboxes写在一起，没有transformed['category_ids']，类别信息包含在transformed['bboxes']中
 
 
 ### 补充：常用变换
