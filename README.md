@@ -65,7 +65,7 @@ transform = A.Compose(
 transformed = transform(image=image, bboxes=bboxes, category_ids=category_ids)
 
 # 得到一个字典 保存变换后的图片 及其对应的 物体框和类别
-transformed['image']
+transformed['image'] 
 transformed['bboxes']
 transformed['category_ids']
 ```
